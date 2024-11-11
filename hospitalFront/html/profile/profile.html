@@ -1,0 +1,74 @@
+<div class="mt-auto mb-auto">
+  <div
+    class="container-md mx-auto rounded col-md-4"
+    style="background: #f5f5fa"
+  >
+    <h3>Профиль</h3>
+    <form id="formProfile">
+      <div class="form-group mb-3" id="name">
+        <label for="inputName">ФИО</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder="Иванов Иван Иванович"
+          name="name"
+          required
+        />
+      </div>
+
+      <div class="row">
+        <div class="form-group mb-3 col-lg-6 col-md-6 flex-row" id="gender">
+          <label for="chooseGender">Пол</label>
+          <select class="form-control" id="chooseGender" name="gender">
+            <option value="Male">Мужской</option>
+            <option value="Female">Женский</option>
+          </select>
+        </div>
+
+        <div class="form-group mb-3 col-lg-6 col-md-6 flex-row" id="birthday">
+          <label for="chooseBirthday">Дата Рождения</label>
+          <input
+            type="date"
+            id="chooseBirthday"
+            class="form-control"
+            name="birthday"
+          />
+        </div>
+      </div>
+
+      <div class="form-group mb-3" id="phone">
+        <label for="phoneInput">Телефон</label>
+        <input
+          type="tel"
+          id="phoneInput"
+          class="form-control"
+          placeholder="+ 7 (ххх)-ххх хх-хх"
+          name="phone"
+        />
+      </div>
+
+      <div class="form-group mb-3" id="email">
+        <label for="inputEmail">Email</label>
+        <input
+          type="email"
+          id="inputEmail"
+          class="form-control"
+          placeholder="name@example.com"
+          name="email"
+          required
+        />
+      </div>
+    </form>
+
+    <button class="btn btn-primary mb-3 col-12" type="button" id="btnEdit">
+      Сохранить изменения
+    </button>
+  </div>
+</div>
+
+<script
+  type="module"
+  src="/hospitalFront/html/profile/profile.js"
+  defer
+></script>

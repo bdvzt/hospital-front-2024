@@ -1,0 +1,244 @@
+<div class="container-md mx-auto rounded col-md-6 mt-4 p-4">
+  <h3 class="text-center mb-4">Детали осмотра</h3>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <div class="d-flex justify-content-between">
+        <h5 class="card-title" id="inspectionDate"></h5>
+        <button
+          type="button"
+          class="btn btn-primary text-light"
+          data-bs-toggle="modal"
+          data-bs-target="#editInspection"
+          id="btnEditInspection"
+        >
+          Редактировать осмотр
+        </button>
+      </div>
+      <p class="card-text" id="patientName"></p>
+      <p class="card-text" id="patientGender"></p>
+      <p class="card-text" id="patientBirthday"></p>
+      <p class="card-text" id="doctorName"></p>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Жалобы</h5>
+      <p class="card-text" id="complaints"></p>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Анамнез заболевания</h5>
+      <p class="card-text" id="anamnesis"></p>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Консультации</h5>
+      <div id="consultationsContainer"></div>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Комментарии</h5>
+      <div id="commentsContainer"></div>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Диагнозы</h5>
+      <div id="diagnosesContainer"></div>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Рекомендации по лечению</h5>
+      <p class="card-text" id="treatment"></p>
+    </div>
+  </div>
+
+  <div class="card mb-4" style="background: #f5f5fa">
+    <div class="card-body">
+      <h5 class="card-title">Заключение</h5>
+      <p class="card-text" id="conclusion"></p>
+      <p class="card-text" id="nextVisitDate" style="display: none"></p>
+    </div>
+  </div>
+
+  <div class="d-grid gap-2 mt-4">
+    <button class="btn btn-secondary" onclick="window.history.back();">
+      Назад
+    </button>
+  </div>
+</div>
+
+<div class="modal fade" id="editInspection" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Редактирование осмотра</h3>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form id="formInspection">
+            <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+              <label for="complaints1" class="form-label">Жалобы</label>
+              <textarea
+                class="form-control"
+                id="complaints1"
+                name="complaints"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+              <label for="anamnesis1" class="form-label"
+                >Анамнез заболевания</label
+              >
+              <textarea
+                class="form-control"
+                id="anamnesis1"
+                name="anamnesis"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+              <label for="diagnosesContainer1" class="form-label"
+                >Диагноз</label
+              >
+              <div id="diagnosesContainer1">
+                <div class="mb-3 diagnosis">
+                  <label for="icdDiagnosisId1" class="form-label"
+                    >Болезни</label
+                  >
+                  <select
+                    class="form-select icd-select"
+                    id="icdDiagnosisId1"
+                    name="icdDiagnosisId"
+                    required
+                  ></select>
+                </div>
+
+                <div class="mb-3">
+                  <label for="diagnosisDescription1" class="form-label"
+                    >Описание диагноза</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="diagnosisDescription1"
+                    name="diagnosisDescription"
+                    rows="3"
+                  ></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="diagnosisType1" class="form-label"
+                    >Тип диагноза</label
+                  >
+                  <select
+                    class="form-select"
+                    id="diagnosisType1"
+                    name="diagnosisType"
+                    required
+                  >
+                    <option value="Main">Основной</option>
+                    <option value="Concomitant">Сопутствующий</option>
+                    <option value="Complication">Осложнение</option>
+                  </select>
+                </div>
+              </div>
+              <button id="btnAddDiagnosis1" class="btn btn-primary">
+                + Добавить диагноз
+              </button>
+            </div>
+
+            <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+              <label for="treatment1" class="form-label"
+                >Рекомендации по лечению</label
+              >
+              <textarea
+                class="form-control"
+                id="treatment1"
+                name="treatment"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+              <label for="conclusion1" class="form-label">Заключение</label>
+              <div class="mb-3">
+                <label for="conclusion1" class="form-label">Заключение</label>
+                <select
+                  class="form-select"
+                  id="conclusion1"
+                  name="conclusion"
+                  required
+                >
+                  <option value="Disease">Болезнь</option>
+                  <option value="Recovery">Выздоровление</option>
+                  <option value="Death">Смерть</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="dateNext1">Дата следующего визита</label>
+                <input
+                  type="datetime-local"
+                  id="dateNext1"
+                  class="form-control"
+                  name="dateNext"
+                  required
+                />
+              </div>
+
+              <div
+                class="form-group"
+                id="deathDateContainer1"
+                style="display: none"
+              >
+                <label for="deathDate1">Дата смерти</label>
+                <input
+                  type="datetime-local"
+                  id="deathDate1"
+                  class="form-control"
+                  name="deathDate"
+                />
+              </div>
+            </div>
+
+            <div class="d-grid gap-2">
+              <button
+                class="btn btn-primary"
+                type="button"
+                id="btnSaveInspection"
+              >
+                Сохранить изменения
+              </button>
+              <button
+                class="btn btn-secondary"
+                type="button"
+                id="btnCancelInspection"
+              >
+                Отмена
+              </button>
+            </div>
+          </form>
+
+          <div>
+            <p class="text-success text-center" id="registrationOk"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="/hospitalFront/html/details/details.js"></script>

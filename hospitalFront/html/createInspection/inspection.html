@@ -1,0 +1,203 @@
+<div class="container-md mx-auto rounded col-md-6 mt-4 p-4">
+  <h3 class="text-center mb-4">Создание осмотра</h3>
+
+  <form id="formInspection">
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <div class="form-check form-switch mb-3">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="firstInspection"
+          name="firstInspection"
+        />
+        <label class="form-check-label" for="firstInspection"
+          >Первичный осмотр</label
+        >
+      </div>
+
+      <div class="row mb-1">
+        <div class="col mb-auto mt-auto">
+          <div class="d-flex justify-content-start mt-auto">
+            <h3 id="patientName"></h3>
+          </div>
+        </div>
+        <div class="col mb-auto mt-auto">
+          <div class="d-flex justify-content-end align-items-center">
+            <p id="birthDate"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="date">Дата осмотра</label>
+        <input
+          type="datetime-local"
+          id="date"
+          class="form-control"
+          name="date"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <label for="complaints" class="form-label">Жалобы</label>
+      <textarea
+        class="form-control"
+        id="complaints"
+        name="complaints"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <label for="anamnesis" class="form-label">Анамнез заболевания</label>
+      <textarea
+        class="form-control"
+        id="anamnesis"
+        name="anamnesis"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <label for="diagnoses" class="form-label">Диагноз</label>
+      <div id="diagnosesContainer">
+        <div class="mb-3 diagnosis">
+          <label for="icdDiagnosisId" class="form-label">Болезни</label>
+          <select
+            class="form-select icd-select"
+            id="icdDiagnosisId"
+            name="icdDiagnosisId"
+            required
+          ></select>
+        </div>
+
+        <div class="mb-3">
+          <label for="diagnosisDescription" class="form-label"
+            >Описание диагноза</label
+          >
+          <textarea
+            class="form-control"
+            id="diagnosisDescription"
+            name="diagnosisDescription"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label for="diagnosisType" class="form-label">Тип диагноза</label>
+          <select
+            class="form-select"
+            id="diagnosisType"
+            name="diagnosisType"
+            required
+          >
+            <option value="Main">Основной</option>
+            <option value="Concomitant">Сопутствующий</option>
+            <option value="Complication">Осложнение</option>
+          </select>
+        </div>
+      </div>
+      <button id="btnAddDiagnosis" class="btn btn-primary">
+        + Добавить диагноз
+      </button>
+    </div>
+
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <label for="consultations" class="form-label">Консультация</label>
+      <div id="consultationsContainer" class="mb-3">
+        <div class="form-check form-switch mb-3">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            id="needConsultation"
+            name="needConsultation"
+          />
+          <label class="form-check-label" for="needConsultation"
+            >Требуется консультация</label
+          >
+        </div>
+
+        <div class="form-group mb-3" id="speciality" style="display: none">
+          <label for="chooseSpeciality">Специальность</label>
+          <select
+            class="form-select"
+            id="chooseSpeciality"
+            data-placeholder="Выберите специальность"
+            name="speciality"
+          ></select>
+        </div>
+
+        <textarea
+          class="form-control"
+          id="consultationsComment"
+          name="consultationsComment"
+          rows="3"
+          placeholder="Комментарий к консультации"
+          style="display: none"
+        ></textarea>
+      </div>
+      <button id="btnAddConsultation" class="btn btn-primary">Добавить консультацию</button>
+    </div>
+    
+
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <label for="treatment" class="form-label">Рекомендации по лечению</label>
+      <textarea
+        class="form-control"
+        id="treatment"
+        name="treatment"
+        rows="3"
+      ></textarea>
+    </div>
+
+    <div class="border rounded p-3 mb-4" style="background: #f5f5fa">
+      <label for="conclusion" class="form-label">Заключение</label>
+      <div class="mb-3">
+        <label for="conclusion" class="form-label">Заключение</label>
+        <select class="form-select" id="conclusion" name="conclusion" required>
+          <option value="Disease">Болезнь</option>
+          <option value="Recovery">Выздоровление</option>
+          <option value="Death">Смерть</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="dateNext" >
+        <label for="dateNext">Дата следующего визита</label>
+        <input
+          type="datetime-local"
+          id="dateNext"
+          class="form-control"
+          name="dateNext"
+          required
+        />
+      </div>
+
+      <div class="form-group" id="deathDateContainer" style="display: none">
+        <label for="deathDate">Дата смерти</label>
+        <input
+          type="datetime-local"
+          id="deathDate"
+          class="form-control"
+          name="deathDate"
+        />
+      </div>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="button" id="btnSaveInspection">
+        Сохранить осмотр
+      </button>
+      <button class="btn btn-secondary" type="button" id="btnCancelInspection">
+        Отмена
+      </button>
+    </div>
+  </form>
+</div>
+
+<script
+  type="module"
+  src="/hospitalFront/html/createInspection/inspection.js"
+  defer
+></script>

@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="row mb-3">
+    <div class="col mb-auto mt-auto">
+      <div class="d-flex justify-content-start">
+        <h1>Консультации</h1>
+      </div>
+    </div>
+  </div>
+
+  <form
+    class="container mx-auto rounded mb-3"
+    style="background: #f5f5fa"
+    id="formMKB"
+  >
+    <div class="row align-items-center mb-2 d-flex justify-content-around">
+      <div class="col col-md-6 mb-1">
+        <div class="form-group">
+          <label class="mt-3" for="mkb">МКБ-10</label>
+          <select
+            multiple
+            class="form-select"
+            id="mkb"
+            data-placeholder="Выбрать"
+            name="mkb"
+            required
+          ></select>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-1">
+        <div class="form-check d-flex justify-content-center">
+          <input
+            class="form-check-input me-1"
+            type="radio"
+            name="grouped"
+            id="groupRadio"
+            value="true"
+          />
+          <label class="form-check-label" for="groupRadio"
+            >Сгруппировать по повторным</label
+          >
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-1">
+        <div class="form-check d-flex justify-content-center">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="grouped"
+            id="showAlRadio"
+            value="false"
+            checked
+          />
+          <label class="form-check-label" for="showAlRadio">Показать все</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group mb-3 col-md-4">
+        <label for="amountInspections">Число осмотров на странице</label>
+        <input
+          type="number"
+          class="form-control"
+          id="amountInspections"
+          name="amountInspections"
+          value="5"
+          min="1"
+        />
+      </div>
+
+      <div class="col form-group mb-auto mt-auto">
+        <div class="d-md-flex justify-content-md-end">
+          <button type="button" class="btn btn-info text-light" id="btnSearch">
+            Поиск
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <div id="patientConsultations" class="container mb-3 row g-6"></div>
+  <div id="paginationContainer" class="mb-3"></div>
+</div>
+<script
+  type="module"
+  src="/hospitalFront/html/consultation/consultation.js"
+  defer
+></script>

@@ -1,0 +1,75 @@
+<div id="header">
+  <nav class="navbar navbar-expand-lg bg-primary navbar-dark mb-3">
+    <div class="container-fluid">
+      <div class="navbar-brand mb-auto mt-auto">
+        <img
+          src="/hospitalFront/danger.png"
+          alt="Logo"
+          width="30"
+          height="30"
+          class="d-inline-block mb-auto mt-auto"
+        />
+        Try not to DIE
+      </div>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="верхние кнопки"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" id="listPatients">
+            <a class="nav-link active" href="/patients" data-navigo>Пациенты</a>
+          </li>
+          <li class="nav-item" id="consultation">
+            <a class="nav-link active" href="/consultations" data-navigo
+              >Консультации</a
+            >
+          </li>
+          <li class="nav-item" id="reports">
+            <a class="nav-link active" href="/reports" data-navigo
+              >Отчеты и статистика</a
+            >
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ml-auto mr-4 mt-2 mt-lg-0">
+          <li class="nav-item dropdown" id="fioButtons" style="display: none">
+            <a
+              class="text-truncate nav-link active dropdown-toggle"
+              style="max-width: 20ch"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              id="fio"
+            >
+            </a>
+            <ul class="dropdown-menu">
+              <a class="dropdown-item" href="/profile" data-navigo>Профиль</a>
+              <p
+                style="cursor: pointer; margin-bottom: 0"
+                class="dropdown-item"
+                id="btnLogout"
+              >
+                Выйти
+              </p>
+            </ul>
+          </li>
+          <li class="nav-item" id="login">
+            <a class="nav-link active" href="/login" data-navigo>Вход</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<script type="module" src="/hospitalFront/page/header.js" defer></script>
